@@ -76,6 +76,7 @@
     "@rollup/plugin-node-resolve": "^15.0.2",
     "@rollup/plugin-terser": "^0.4.1",
     "@rollup/plugin-typescript": "^11.1.0",
+    "@skeletonlabs/skeleton": "^1.5.1",
     "@tsconfig/svelte": "^4.0.1",
     "@types/clean-css": "^4.2.6",
     "@types/html-minifier": "^4.0.2",

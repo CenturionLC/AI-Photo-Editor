@@ -13,10 +13,10 @@
 <style>
   :root[svelvet-theme="custom-dark"] {
     /* --background-color: #181825; */
-    --background-color: theme(colors.ctp-base);
+    --background-color: theme(colors.zinc.700);
     --dot-color: hsl(225, 10%, 50%);
 
-    --minimap-background-color: theme(colors.ctp-mantle);
+    --minimap-background-color: theme(colors.zinc.700);
 
     --minimap-node-color: hsl(225, 30%, 20%);
 
@@ -26,6 +26,6 @@
     --theme-toggle-text-color: hsl(0, 0%, 100%);
     --theme-toggle-color: hsl(225, 20%, 27%);
 
-    --node-color: hsl(74, 61%, 69%); 
+    --node-color: hsl(74, 61%, 69%);
   }
 </style>
