@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { onDestroy, onMount } from "svelte";
+  import { onMount } from "svelte";
   // import processor from "./Graph/Brightness.svelte"
-  import { brightness } from "../stores/graphStore";
 
   export let src: string;
 
@@ -19,21 +18,10 @@
       loadState = "failed";
     };
   });
-
-  let currentBrightness = 0;
-
-  const unsubscribe = brightness.subscribe((value) => {
-    currentBrightness = value;
-    console.log("Current brightness:", currentBrightness);
-  });
-
-  onDestroy(() => {
-    unsubscribe();
-  });
 </script>
 
 {#if loadState == "loaded"}
-  <img src="{src}" alt="Document" class="test" style="filter: brightness({currentBrightness});" />
+  <img src="{src}" alt="Document" class="test" style="filter: brightness(0.5)"/>
 {:else if loadState == "failed"}
   <img src="" alt="Not Found" />
 {:else if loadState == "loading"}

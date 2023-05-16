@@ -47,12 +47,22 @@ export default {
             tsconfigFile: production ? "./tsconfig.svelte.prod.json" : "./tsconfig.svelte.json",
           },
           postcss: {
-            plugins: [require('tailwindcss'), require('autoprefixer')],
+            plugins: [
+              require('tailwindcss'),
+              require('autoprefixer')
+            ],
           },
-        }),
+      }),
       compilerOptions: {
         // enable run-time checks when not in production
         dev: !production,
+      },
+      onwarn: (warning, handler) => {
+        // e.g. don't warn on <marquee> elements, cos they're cool
+        return;
+
+        // let Rollup handle all other warnings normally
+        handler(warning);
       },
     }),
     // we'll extract any component CSS out into
