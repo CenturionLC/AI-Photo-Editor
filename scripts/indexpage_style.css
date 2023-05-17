@@ -1,0 +1,7 @@
+a.nav-link:hover:not(.active) {
+  color: #f00f00 !important;
+  cursor: pointer;
+}
+.tab-content {
+  overflow-y: scroll;
+}

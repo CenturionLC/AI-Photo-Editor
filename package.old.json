@@ -30,7 +30,7 @@
   "main": "build/index.js",
   "scripts": {
     "prestart": "cross-env NODE_ENV=development node scripts/preBuild.js",
-    "start": "electron ./main.js",
+    "start": "cross-env NODE_ENV=development npm-run-all -p -r build:frontend:dev start:electron",
     "prebuild": "cross-env NODE_ENV=production node scripts/preBuild.js",
     "build": "cross-env NODE_ENV=production npm-run-all -s build:frontend:prod build:electron:prod",
     "postbuild": "cross-env NODE_ENV=production node scripts/postBuild.js",
@@ -57,9 +57,7 @@
     "lint": "npm-run-all -s lint:electron lint:svelte",
     "prepublishOnly": "npm-run-all -s test lint",
     "preversion": "npm-run-all -s lint format",
-    "prepare": "husky install",
-    "rebuild": "./node_modules/.bin/electron-rebuild",
-    "deploy": "node ./config/firebase-deploy.js"
+    "prepare": "husky install"
   },
   "lint-staged": {
     "src/electron/**/*.{js,ts}": "eslint -c eslint.electron.json",
@@ -67,7 +65,6 @@
     "(src|scripts)/**": "prettier --write --ignore-unknown"
   },
   "dependencies": {
-    "electron-firebase": "^1.2.0",
     "electron-log": "^4.4.8",
     "electron-store": "^8.1.0",
     "electron-updater": "^5.3.0",
